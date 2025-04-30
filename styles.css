@@ -1,0 +1,121 @@
+/* Spotify-style themed CSS */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #191414, #1db954);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+}
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+.logo {
+  width: 40px;
+  height: 40px;
+}
+.app-title {
+  font-size: 24px;
+  color: #1db954;
+  font-weight: 700;
+}
+.player {
+  background-color: #282828;
+  padding: 25px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 350px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
+#song-title {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+#song-meta {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 15px;
+}
+.controls {
+  margin: 15px 0;
+}
+button {
+  background: #1db954;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  margin: 0 8px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+button:hover {
+  background: #1ed760;
+}
+input[type="range"] {
+  width: 100%;
+  appearance: none;
+  height: 6px;
+  border-radius: 5px;
+  background: #555;
+  outline: none;
+  margin: 10px 0;
+}
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #1db954;
+  cursor: pointer;
+}
+.time-container {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #ccc;
+}
+.volume-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+#volumeIcon {
+  font-size: 18px;
+}
+.file-input {
+  margin: 12px 0;
+}
+#playlist {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+  max-height: 160px;
+  overflow-y: auto;
+  text-align: left;
+  background: #1f1f1f;
+  border-radius: 10px;
+}
+#playlist li {
+  padding: 10px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: #eee;
+}
+#playlist li:hover {
+  background-color: #333;
+  color: #1db954;
+}
