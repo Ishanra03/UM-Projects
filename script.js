@@ -51,7 +51,7 @@ function changeSong(step) {
 function formatTime(seconds) {
   const mins = Math.floor(seconds / 60);
   const secs = Math.floor(seconds % 60).toString().padStart(2, '0');
-  return \`\${mins}:\${secs}\`;
+  return `${mins}:${secs}`;
 }
 
 // Update volume icon
@@ -79,7 +79,8 @@ volumeBar.addEventListener("input", () => {
   updateVolumeIcon(audio.volume);
 });
 
-// Add songs to playlist
+
+// Add songs to playlist with metadata
 addSongButton.addEventListener("click", () => {
   Array.from(fileInput.files).forEach(file => {
     const name = file.name;
@@ -89,20 +90,26 @@ addSongButton.addEventListener("click", () => {
       onSuccess: tag => {
         const artist = tag.tags.artist || "Unknown Artist";
         const album = tag.tags.album || "Unknown Album";
-        song.meta = \`\${artist} - \${album}\`;
+        song.meta = `${artist} - ${album}`;
       },
-      onError: () => song.meta = "Unknown Artist - Unknown Album"
+      onError: () => {
+        song.meta = "Unknown Artist - Unknown Album";
+      }
     });
 
     playlist.push(song);
+
     const li = document.createElement("li");
     li.textContent = name;
-    li.onclick = () => loadSong(songIndex = playlist.findIndex(s => s.name === name));
+    li.onclick = () => {
+      songIndex = playlist.findIndex(s => s.name === name);
+      loadSong(songIndex);
+    };
     playlistElement.appendChild(li);
   });
 });
 
-// Button events
+// Handle player events
 playButton.addEventListener("click", togglePlay);
 nextButton.addEventListener("click", () => changeSong(1));
 prevButton.addEventListener("click", () => changeSong(-1));
